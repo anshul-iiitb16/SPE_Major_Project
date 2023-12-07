@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> 
 {
     // All crud Database Methods
-    // Whenever any record does not exist in the database, then our application should throw and exception
-    
 
-
-    
+        
 }
