@@ -1,13 +1,10 @@
 package net.spemajor.springboot.model;
 
-import lombok.Setter;
-import jakarta.annotation.Generated;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -20,9 +17,18 @@ public class Employee
 {
     // Setting Id as a P.K.
     @Id
+
+    // Making Identity as parallel key generation strategy
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    // Creating columns
+    @Column(name="first_name")
     private String firstName;
+
+    @Column(name="last_name")
     private String lastName;
-    private String emailID;    
+
+    @Column(name="email_id")
+    private String emailId;   
 }
