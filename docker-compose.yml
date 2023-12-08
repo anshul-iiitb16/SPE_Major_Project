@@ -19,6 +19,9 @@ services:
     ports:
       - 3000:3000
 
+    networks:
+      - my-network
+
   backend:
   
     image: anshul1601/backend_image:latest
@@ -36,6 +39,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/ems?createDatabaseIfNotExist=true&&useSSL=false&&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: anshul
       SPRING_DATASOURCE_PASSWORD: Anshul@kota12
+
+    networks:
+      - my-network
 
   mysqldb:
     # Using image property means that we will be pulling it's image
@@ -55,7 +61,14 @@ services:
 
     ports:
       - 3306:3306
+    
+    networks:
+      - my-network
 
 volumes:
   mysql-data:
     driver: local
+
+networks:
+  my-network:
+    driver: bridge
