@@ -1,0 +1,57 @@
+# First we set version of our copose file.
+# We will use latest version
+version: "3.8"
+
+# Now we will list down what all services we have in our application (frontend, backend and database)
+# In each service, we will mention basically how to build images and run it for each service in terms of some properties.
+services:
+  frontend:
+    #Now we will tell how to build the image for this service using build property.
+    #build: ./react-hooks-frontend
+
+    # But here we have to pull the image from our dockerhub
+    image: anshul1601/frontend_image:latest
+
+    container_name: frontend_container
+    # Now we will do port mapping
+    # We can have multiple port mappings.
+    # Syntax p1:p2 -> p1 is port of host(frontend) and p2 is the port of the container that is running the image
+    ports:
+      - 3000:3000
+
+  backend:
+  
+    image: anshul1601/backend_image:latest
+
+    ports:
+      - 8082:8082
+
+    # Depends on links 2 services
+    depends_on:
+      - mysqldb
+
+    container_name: backend
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/ems?createDatabaseIfNotExist=true&&useSSL=false&&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: anshul
+      SPRING_DATASOURCE_PASSWORD: Anshul@kota12
+
+  mysqldb:
+    # Using image property means that we will be pulling it's image
+    image: "mysql"
+
+    # Giving the name of the container
+    container_name: mysqldb
+
+    # Volumes will tell us where the container will store it's data
+    # Storage can be external like here Mysql always stores its data in /var/lib/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: Anshul@kota12
+      MYSQL_DATABASE: ems
+
+    ports:
+      - 3306:3306
