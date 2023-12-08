@@ -22,27 +22,27 @@ services:
     networks:
       - my-network
 
-  mysqldb:
-    # Using image property means that we will be pulling it's image
-    image: "mysql"
+  # mysqldb:
+  #   # Using image property means that we will be pulling it's image
+  #   image: "mysql"
 
-    # Giving the name of the container
-    container_name: mysqldb
+  #   # Giving the name of the container
+  #   container_name: mysqldb
 
-    # Volumes will tell us where the container will store it's data
-    # Storage can be external like here Mysql always stores its data in /var/lib/mysql
-    volumes:
-      - mysql-data:/var/lib/mysql
+  #   # Volumes will tell us where the container will store it's data
+  #   # Storage can be external like here Mysql always stores its data in /var/lib/mysql
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
 
-    environment:
-      MYSQL_ROOT_PASSWORD: Anshul@kota12
-      MYSQL_DATABASE: ems
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: Anshul@kota12
+  #     MYSQL_DATABASE: ems
 
-    ports:
-      - 3306:3306
+  #   ports:
+  #     - 3306:3306
     
-    networks:
-      - my-network
+  #   networks:
+  #     - my-network
 
   backend:
   
