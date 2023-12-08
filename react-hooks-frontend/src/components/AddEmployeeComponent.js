@@ -11,42 +11,42 @@ const AddEmployeeComponent = () => {
     const history = useNavigate();
     const {id} = useParams();
 
-    // const saveOrUpdateEmployee = (e) => {
-    //     e.preventDefault();
+    const saveOrUpdateEmployee = (e) => {
+        e.preventDefault();
 
-    //     const employee = {firstName, lastName, emailId};
+        const employee = {firstName, lastName, emailId};
 
-    //     if(id){
-    //         EmployeeService.updateEmployee(id, employee).then((response) => {
-    //             history('/employees')
-    //         }).catch(error => {
-    //             console.log(error)
-    //         })
+        if(id){
+            EmployeeService.updateEmployee(id, employee).then((response) => {
+                history('/employees')
+            }).catch(error => {
+                console.log(error)
+            })
 
-    //     }else{
-    //         EmployeeService.createEmployee(employee).then((response) =>{
+        }else{
+            EmployeeService.createEmployee(employee).then((response) =>{
 
-    //             console.log(response.data)
+                console.log(response.data)
     
-    //             history('/employees');
+                history('/employees');
     
-    //         }).catch(error => {
-    //             console.log(error)
-    //         })
-    //     }
+            }).catch(error => {
+                console.log(error)
+            })
+        }
         
-    // }
+    }
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     EmployeeService.getEmployeeById(id).then((response) =>{
-    //         setFirstName(response.data.firstName)
-    //         setLastName(response.data.lastName)
-    //         setEmailId(response.data.emailId)
-    //     }).catch(error => {
-    //         console.log(error)
-    //     })
-    // }, [])
+        EmployeeService.getEmployeeById(id).then((response) =>{
+            setFirstName(response.data.firstName)
+            setLastName(response.data.lastName)
+            setEmailId(response.data.emailId)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [])
 
     const title = () => {
 
