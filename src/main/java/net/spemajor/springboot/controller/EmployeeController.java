@@ -43,34 +43,34 @@ public class EmployeeController
         return employeeRepository.save(employee);
     }
 
-    // //BUILD GET EMPLOYEE BY ID REST API
-    // @GetMapping("{id}")
-    // public ResponseEntity<Employee> getEmployeeId(@PathVariable long id){
-    //     Employee employee=employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id "+id)) ;
-    //     return ResponseEntity.ok(employee);
-    // }
+    //BUILD GET EMPLOYEE BY ID REST API
+    @GetMapping("{id}")
+    public ResponseEntity<Employee> getEmployeeId(@PathVariable long id){
+        Employee employee=employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id "+id)) ;
+        return ResponseEntity.ok(employee);
+    }
 
-    // //BUILD UPDATE EMPLOYEE REST API
-    // @PutMapping("{id}")
-    // //post mapping vs put mapping. post used to create a resource and put used to update a resource 
-    // public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee employeeDetails){
-    //     Employee updateEmployee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee does not exist with id "+id));
-    //     updateEmployee.setFirstName(employeeDetails.getFirstName());
-    //     updateEmployee.setLastName(employeeDetails.getLastName());
-    //     updateEmployee.setEmailId(employeeDetails.getEmailId());
+    //BUILD UPDATE EMPLOYEE REST API
+    @PutMapping("{id}")
+    //post mapping vs put mapping. post used to create a resource and put used to update a resource 
+    public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee employeeDetails){
+        Employee updateEmployee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee does not exist with id "+id));
+        updateEmployee.setFirstName(employeeDetails.getFirstName());
+        updateEmployee.setLastName(employeeDetails.getLastName());
+        updateEmployee.setEmailId(employeeDetails.getEmailId());
 
-    //     employeeRepository.save(updateEmployee);
+        employeeRepository.save(updateEmployee);
 
-    //     return ResponseEntity.ok(updateEmployee);
-    // }
+        return ResponseEntity.ok(updateEmployee);
+    }
 
-    // //BUILD DELETE EMPLOYEE REST API
-    // @DeleteMapping("{id}")
-    // public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable long id){
-    //     Employee employee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exists "+id));
+    //BUILD DELETE EMPLOYEE REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable long id){
+        Employee employee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exists "+id));
 
-    //     employeeRepository.delete(employee);
-    //     return new ResponseEntity<>(HttpStatus. NO_CONTENT);
+        employeeRepository.delete(employee);
+        return new ResponseEntity<>(HttpStatus. NO_CONTENT);
 
-    // }
+    }
 }
