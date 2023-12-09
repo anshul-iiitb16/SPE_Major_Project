@@ -1,6 +1,6 @@
 ---
 - name: Deploy docker images
-  hosts: all
+  hosts: localhost
 
   tasks:
     - name: Pull the Docker images specifed in docker-compose
