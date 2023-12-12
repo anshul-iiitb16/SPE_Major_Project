@@ -5,22 +5,6 @@ version: "3.8"
 # Now we will list down what all services we have in our application (frontend, backend and database)
 # In each service, we will mention basically how to build images and run it for each service in terms of some properties.
 services:
-  frontend:
-    #Now we will tell how to build the image for this service using build property.
-    #build: ./react-hooks-frontend
-
-    # But here we have to pull the image from our dockerhub
-    image: anshul1601/frontend_image:latest
-
-    container_name: frontend_container
-    # Now we will do port mapping
-    # We can have multiple port mappings.
-    # Syntax p1:p2 -> p1 is port of host(frontend) and p2 is the port of the container that is running the image
-    ports:
-      - "3000:3000"
-
-    networks:
-      - my-network
 
   mysqldb:
     # Using image property means that we will be pulling it's image
@@ -41,6 +25,23 @@ services:
     ports:
       - 6033:3306
     
+    networks:
+      - my-network
+      
+  frontend:
+    #Now we will tell how to build the image for this service using build property.
+    #build: ./react-hooks-frontend
+
+    # But here we have to pull the image from our dockerhub
+    image: anshul1601/frontend_image:latest
+
+    container_name: frontend_container
+    # Now we will do port mapping
+    # We can have multiple port mappings.
+    # Syntax p1:p2 -> p1 is port of host(frontend) and p2 is the port of the container that is running the image
+    ports:
+      - "3000:3000"
+
     networks:
       - my-network
 
