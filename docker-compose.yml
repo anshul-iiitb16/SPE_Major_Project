@@ -19,8 +19,10 @@ services:
       - mysql-data:/var/lib/mysql
 
     environment:
-      MYSQL_ROOT_PASSWORD: Anshul@kota12
       MYSQL_DATABASE: ems
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Anshul@kota12
+      MYSQL_ROOT_PASSWORD: Anshul@kota12
 
     ports:
       - 6033:3306
