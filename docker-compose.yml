@@ -6,29 +6,29 @@ version: "3.8"
 # In each service, we will mention basically how to build images and run it for each service in terms of some properties.
 services:
 
-  # mysqldb:
-  #   # Using image property means that we will be pulling it's image
-  #   image: "mysql"
+  mysqldb:
+    # Using image property means that we will be pulling it's image
+    image: "mysql"
 
-  #   # Giving the name of the container
-  #   container_name: mysqldb
+    # Giving the name of the container
+    container_name: mysqldb
 
-  #   # Volumes will tell us where the container will store it's data
-  #   # Storage can be external like here Mysql always stores its data in /var/lib/mysql
-  #   volumes:
-  #     - mysql-data:/var/lib/mysql
+    # Volumes will tell us where the container will store it's data
+    # Storage can be external like here Mysql always stores its data in /var/lib/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
 
-  #   environment:
-  #     MYSQL_DATABASE: ems
-  #     MYSQL_USER: root
-  #     MYSQL_PASSWORD: Anshul@kota12
-  #     MYSQL_ROOT_PASSWORD: Anshul@kota12
+    environment:
+      MYSQL_DATABASE: ems
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Anshul@kota12
+      MYSQL_ROOT_PASSWORD: Anshul@kota12
 
-  #   ports:
-  #     - 6033:3306
+    ports:
+      - 6033:3306
     
-  #   networks:
-  #     - my-network
+    networks:
+      - my-network
       
   frontend:
     #Now we will tell how to build the image for this service using build property.
