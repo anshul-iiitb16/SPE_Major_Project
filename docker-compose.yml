@@ -60,6 +60,8 @@ services:
 
     container_name: backend
 
+    tty: true
+
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:6033/ems?createDatabaseIfNotExist=true&&useSSL=false&&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: root
