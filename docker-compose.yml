@@ -58,7 +58,7 @@ services:
     container_name: backend
 
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/ems?createDatabaseIfNotExist=true&&useSSL=false&&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:6033/ems?createDatabaseIfNotExist=true&&useSSL=false&&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: Anshul@kota12
 
