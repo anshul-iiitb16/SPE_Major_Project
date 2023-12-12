@@ -4,6 +4,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import AddEmployeeComponent from './components/AddEmployeeComponent';
+import LoginComponent from './components/LoginComponent';
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <HeaderComponent />
         <div className='container'>
           <Routes>
-            <Route path='/' Component= {ListEmployeeComponent}></Route>
+            <Route path='/' Component= {LoginComponent}></Route>
+            <Route path='*' Component= {ListEmployeeComponent}></Route
             <Route path='/employees' Component= {ListEmployeeComponent}></Route>
             <Route path='/add-employee' Component= {AddEmployeeComponent}></Route>
             <Route path='/edit-employee/:id' Component= {AddEmployeeComponent}></Route>
