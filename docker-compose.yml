@@ -54,9 +54,9 @@ services:
     ports:
       - "8082:8082"
 
-    # # Depends on links 2 services
-    # depends_on:
-    #   - mysqldb
+    # Depends on links 2 services
+    depends_on:
+      - mysqldb
 
     container_name: backend
 
