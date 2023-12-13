@@ -17,6 +17,9 @@ import net.spemajor.springboot.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.List;
 
 // Through this *, any client can access the REST API endpoint
@@ -26,12 +29,16 @@ import java.util.List;
 @RequestMapping("/api/v1/employees")
 public class EmployeeController 
 {
+    private static final Logger logger =
+            LogManager.getLogger(EmployeeController.class);
+
     @Autowired
     private EmployeeRepository employeeRepository;
 
     @GetMapping
     public List<Employee> getAllEmployees()
     {
+        logger.info("Fetching the list of employees from database");
         return employeeRepository.findAll();
     }
 
@@ -40,6 +47,7 @@ public class EmployeeController
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee)
     {
+        logger.debug("Employee added");
         return employeeRepository.save(employee);
     }
 
@@ -47,6 +55,7 @@ public class EmployeeController
     @GetMapping("{id}")
     public ResponseEntity<Employee> getEmployeeId(@PathVariable long id){
         Employee employee=employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id "+id)) ;
+        logger.debug("Employee found");
         return ResponseEntity.ok(employee);
     }
 
@@ -61,6 +70,8 @@ public class EmployeeController
 
         employeeRepository.save(updateEmployee);
 
+        logger.debug("Successfully updated the employee");
+
         return ResponseEntity.ok(updateEmployee);
     }
 
@@ -70,6 +81,7 @@ public class EmployeeController
         Employee employee = employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not exists "+id));
 
         employeeRepository.delete(employee);
+        logger.debug("Delete employee");
         return new ResponseEntity<>(HttpStatus. NO_CONTENT);
 
     }

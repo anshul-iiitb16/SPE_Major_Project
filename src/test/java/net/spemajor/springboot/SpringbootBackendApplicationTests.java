@@ -1,4 +1,4 @@
-package net.spemajor;
+package net.spemajor.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
