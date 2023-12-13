@@ -1,7 +1,7 @@
 # Node image as base image (alpine is distribution)
 FROM node:17-alpine3.12
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
+
 COPY package.json .
 COPY package-lock.json .
 
