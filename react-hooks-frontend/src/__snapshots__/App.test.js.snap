@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the App correctly 1`] = `
+<div>
+  <div>
+    <header>
+      <nav
+        className="navbar navbar-expand-md navbar-dark bg-dark"
+      >
+        <div>
+          <a
+            className="navbar-brand"
+            href="/"
+          >
+            Employee Management Application
+          </a>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="container mt-5"
+    >
+      <h2
+        className="text-center"
+      >
+        Login
+      </h2>
+      <div
+        className="card col-md-6 offset-md-3"
+      >
+        <div
+          className="card-body"
+        >
+          <form>
+            <div
+              className="mb-3"
+            >
+              <label
+                className="form-label"
+                htmlFor="username"
+              >
+                Username:
+              </label>
+              <input
+                className="form-control"
+                id="username"
+                onChange={[Function]}
+                placeholder="Enter username"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              className="mb-3"
+            >
+              <label
+                className="form-label"
+                htmlFor="password"
+              >
+                Password:
+              </label>
+              <input
+                className="form-control"
+                id="password"
+                onChange={[Function]}
+                placeholder="Enter password"
+                type="password"
+                value=""
+              />
+            </div>
+            <button
+              className="btn btn-primary"
+              onClick={[Function]}
+              type="button"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <footer
+      className="footer"
+    >
+      <span
+        className="text-muted>"
+      >
+        All Rights reserved
+      </span>
+    </footer>
+  </div>
+</div>
+`;
